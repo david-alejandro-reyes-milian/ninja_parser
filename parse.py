@@ -10,7 +10,7 @@ local_url = r"c:\profile2.html"
 
 def instantiate_soup_with_url(url):
     page = requests.get(url)
-    new_soup = BeautifulSoup(page, "html.parser")
+    new_soup = BeautifulSoup(page.content, "html.parser")
     return new_soup
 
 
@@ -19,7 +19,7 @@ def instantiate_soup_with_local_page(url):
     return new_soup
 
 
-soup = instantiate_soup_with_local_page(local_url)
+soup = instantiate_soup_with_url(web_url)
 
 
 def get_name_from_page():
