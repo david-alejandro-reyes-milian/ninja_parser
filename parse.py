@@ -67,3 +67,32 @@ def get_social_links_from_page():
             url_links.append(url_link)
 
     return url_links
+
+
+def get_skills_from_page():
+    skills = []
+    skills_in_page = soup.find_all("div", {"class": "job clearfix"})
+    for html_skill in skills_in_page:
+        period = html_skill.contents[1].contents[1]
+        year_from = period.contents[0].string
+        year_to = period.contents[2].string
+        period = '%s - %s' % (year_from, year_to)
+
+        description = html_skill.contents[3]
+        profession = description.contents[1]
+        profession = str(profession.string).strip()
+
+        where = description.contents[3]
+        where = str(where.string).strip()
+
+        description = description.contents[5]
+        description = str(description.string).strip()
+
+        skill = {
+            "period": period,
+            "profession": profession,
+            "where": where,
+            "description": description
+        }
+        skills.append(skill)
+    return skills
