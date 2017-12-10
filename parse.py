@@ -22,3 +22,9 @@ soup = instantiate_soup_with_local_page(local_url)
 def get_name_from_page():
     name = soup.h1.contents[0]
     return str(name).strip()
+
+
+def get_image_url_from_page():
+    all_photos = soup.find_all("img", class_="img-responsive")
+    url_image = all_photos[0].get('src')
+    return url_image
