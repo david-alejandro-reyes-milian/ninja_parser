@@ -129,3 +129,10 @@ def get_data_from_json_file():
             except:
                 return json_data
     return json_data
+
+
+data = get_data_from_json_file()
+
+data.append(new_contact)
+
+save_data_to_json_file(data)
