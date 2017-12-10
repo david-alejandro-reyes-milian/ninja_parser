@@ -39,3 +39,14 @@ def get_job_location_from_page():
     job_details = soup.find_all("div", {"class": "job-detail-description"})
     job_location = job_details[0].contents[1]
     return str(job_location).strip()
+
+
+def get_job_time_from_page():
+    job_details = soup.find_all("div", {"class": "job-detail-description"})
+    try:
+        job_time = job_details[0].contents[4]
+        job_time = job_time.contents[0]
+        return str(job_time).strip()
+    except:
+        return
+
