@@ -96,3 +96,15 @@ def get_skills_from_page():
         }
         skills.append(skill)
     return skills
+
+
+new_contact = {
+    "name": get_name_from_page(),
+    "image_url": get_image_url_from_page(),
+    "job_title": get_job_title_from_page(),
+    "job_location": get_job_location_from_page(),
+    "job_time": get_job_time_from_page(),
+    "about": get_about_from_page(),
+    "social_links": get_social_links_from_page(),
+    "skills": get_skills_from_page()
+}
