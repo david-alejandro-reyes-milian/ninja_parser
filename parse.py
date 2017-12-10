@@ -119,3 +119,13 @@ def save_data_to_json_file(json_data):
     with open(file_name, 'w+') as f:
         json.dump(json_data, f, indent=4)
 
+        
+def get_data_from_json_file():
+    json_data = []
+    if os.path.exists(file_name):
+        with open(file_name, 'r') as f:
+            try:
+                json_data = json.load(f)
+            except:
+                return json_data
+    return json_data
