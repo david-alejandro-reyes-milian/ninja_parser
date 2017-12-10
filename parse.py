@@ -1,5 +1,8 @@
 from bs4 import BeautifulSoup
 import requests as requests
+import json
+import os
+
 
 web_url = 'http://www.ninjacuba.com/freelancers/fabian-ruiz-estevez'
 local_url = r"c:\profile2.html"
@@ -108,3 +111,11 @@ new_contact = {
     "social_links": get_social_links_from_page(),
     "skills": get_skills_from_page()
 }
+
+file_name = "data.json"
+
+
+def save_data_to_json_file(json_data):
+    with open(file_name, 'w+') as f:
+        json.dump(json_data, f, indent=4)
+
