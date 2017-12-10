@@ -44,7 +44,7 @@ def get_job_location_from_page():
     return str(job_location).strip()
 
 
-def get_job_time_from_page():
+def get_job_type_from_page():
     job_details = soup.find_all("div", {"class": "job-detail-description"})
     try:
         job_time = job_details[0].contents[4]
@@ -104,9 +104,11 @@ def get_skills_from_page():
 new_contact = {
     "name": get_name_from_page(),
     "image_url": get_image_url_from_page(),
-    "job_title": get_job_title_from_page(),
-    "job_location": get_job_location_from_page(),
-    "job_time": get_job_time_from_page(),
+    "job": {
+        "title": get_job_title_from_page(),
+        "location": get_job_location_from_page(),
+        "type": get_job_type_from_page()
+    },
     "about": get_about_from_page(),
     "social_links": get_social_links_from_page(),
     "skills": get_skills_from_page()
