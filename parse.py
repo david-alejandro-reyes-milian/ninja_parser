@@ -28,3 +28,8 @@ def get_image_url_from_page():
     all_photos = soup.find_all("img", class_="img-responsive")
     url_image = all_photos[0].get('src')
     return url_image
+
+
+def get_job_title_from_page():
+    job_title = soup.h3
+    return job_title.string
