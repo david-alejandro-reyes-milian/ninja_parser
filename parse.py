@@ -50,3 +50,9 @@ def get_job_time_from_page():
     except:
         return
 
+
+def get_about_from_page():
+    column_whit_about = soup.find("div", {"class": "col-lg-8"})
+    about = column_whit_about.contents[3].string
+    about = str(about).strip()
+    return about
