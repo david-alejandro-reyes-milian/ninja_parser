@@ -33,3 +33,9 @@ def get_image_url_from_page():
 def get_job_title_from_page():
     job_title = soup.h3
     return job_title.string
+
+
+def get_job_location_from_page():
+    job_details = soup.find_all("div", {"class": "job-detail-description"})
+    job_location = job_details[0].contents[1]
+    return str(job_location).strip()
