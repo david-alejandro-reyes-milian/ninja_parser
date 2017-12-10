@@ -17,3 +17,8 @@ def instantiate_soup_with_local_page(url):
 
 
 soup = instantiate_soup_with_local_page(local_url)
+
+
+def get_name_from_page():
+    name = soup.h1.contents[0]
+    return str(name).strip()
