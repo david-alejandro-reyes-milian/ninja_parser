@@ -2,6 +2,8 @@ from html.parser import HTMLParser
 
 import requests as requests
 
+web_url = 'http://www.ninjacuba.com/freelancers/fabian-ruiz-estevez'
+
 
 class HtmlParser(HTMLParser):
     def error(self, message):
@@ -21,5 +23,5 @@ class HtmlParser(HTMLParser):
 
 
 parser = HtmlParser()
-page = requests.get('http://www.ninjacuba.com/freelancers/fabian-ruiz-estevez')
+page = requests.get(web_url)
 parser.feed(str(page.content))
