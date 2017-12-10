@@ -56,3 +56,14 @@ def get_about_from_page():
     about = column_whit_about.contents[3].string
     about = str(about).strip()
     return about
+
+
+def get_social_links_from_page():
+    url_links = []
+    social_links = soup.find_all("a", {"class": "link social website"})
+    for link in social_links:
+        url_link = link.get("href")
+        if not url_links.__contains__(url_link):
+            url_links.append(url_link)
+
+    return url_links
